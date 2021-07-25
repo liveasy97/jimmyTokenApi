@@ -1,0 +1,26 @@
+version: '3.0'
+
+services:
+  app:
+    container_name: springboot-postgres-token
+    image: springboot-postgres-token
+    build:
+      context: .
+    ports:
+      - "1000:1000"
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db/postgres
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=create-drop
+  db:
+    image: 'postgres:13.1-alpine'
+    ports:
+      - "1001:5432"
+    container_name: token-list
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
