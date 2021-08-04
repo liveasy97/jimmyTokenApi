@@ -83,8 +83,8 @@ public interface script {
                 System.out.println("message- " + myResponse.getString("message"));
                 JSONObject result = myResponse.getJSONObject("result");
                 System.out.println(result);
-                System.out.println("AccessToken- " + result.getString("accessToken"));
-                System.out.println("AccessToken- " + result.getString("refreshToken"));
+                System.out.println("Access Token- " + result.getString("accessToken"));
+                System.out.println("Refresh Token- " + result.getString("refreshToken"));
                 String accessToken = result.getString("accessToken");
                 access_token = result.getString("accessToken");
                 refresh_token = result.getString("refreshToken");
