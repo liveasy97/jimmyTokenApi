@@ -29,5 +29,5 @@ jobs:
     - run: sudo docker container rm jimmyTokenApiContainer || true
     - run: sudo docker image rm token || true
     - run: sudo docker build -t token .
-    - run:  sudo docker container start jimmyTokenPostgres || sudo docker run --name Postgres -e POSTGRES_ROOT_PASSWORD=postgres -e POSTGRES_DATABASE=postgres -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -d postgres:alpine 
+    - run:  sudo docker container start jimmyTokenPostgres || sudo docker run --name jimmyTokenPostgres -e POSTGRES_ROOT_PASSWORD=postgres -e POSTGRES_DATABASE=postgres -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -d postgres:alpine 
     - run: sudo docker run --name jimmyTokenApiContainer -p 1000:1000 --link jimmyTokenPostgres:postgres token | echo "success"
